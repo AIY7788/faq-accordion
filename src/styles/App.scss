@@ -1,0 +1,39 @@
+.faq-card {
+  max-width: 540px;
+  margin: 0 auto;
+  background-color: $white_color;
+  padding: clamp(1.2rem, 5vw, 2rem);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(72, 72, 72, 0.1);
+
+  .faq-item {
+    border-bottom: 1px solid color.scale($Purple_600, $lightness: 80%);
+    padding: clamp(1rem, 5vw, 1.4rem) 0;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .faq-answer {
+      color: $Purple_600;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      
+      transition: padding-top 0.52s ease, max-height 0.4s ease ;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+  }
+}
+
+input[type='radio']:checked {
+  & ~ .faq-answer {
+    padding-top: 1rem;
+    max-height: 400px;
+  }
+
+  & ~ label::after {
+    background-image: url('../assets/images/icon-minus.svg');
+  }
+}

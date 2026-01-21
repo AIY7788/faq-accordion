@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 4.5rem 1.2rem;
+  font-family: 'work sans', sans-serif;
+  font-weight: $Font_weight_regular;
+  font-size: $Font_size_base;
+  background-color: $Purple_100;
+  @include flex-center;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25vh;
+    background-image: url('../assets/images/background-pattern-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  @media (min-width: 768px) {
+    & {
+      padding: 0 1.2rem;
+    }
+
+    &::before {
+      height: 34vh;
+      background-image: url('../assets/images/background-pattern-desktop.svg');
+    }
+  }
+}
+
+h1 {
+  font-weight: $Font_weight_bold;
+  color: $Purple_950;
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 1rem;
+
+    background-image: url('../assets/images/icon-star.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+label {
+  text-wrap: balance;
+  display: block;
+  font-weight: $Font_weight_medium;
+  color: $Purple_950;
+  cursor: pointer;
+  position: relative;
+  padding-right: 2rem;
+
+  &::after {
+    content: '';
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    background-image: url('../assets/images/icon-plus.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &:hover {
+    color: color.scale($Purple_950, $lightness: 40%);
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px;
+
+  background-color: color.scale($Purple_950, $lightness: 40%);
+  color: $Purple_100;
+
+  .attribution {
+    text-align: center;
+
+    a {
+      cursor: pointer;
+      color: $Purple_950;
+    }
+  }
+}
